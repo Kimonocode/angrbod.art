@@ -80,7 +80,9 @@ test.group('Products', () => {
         slug: "/produit-01",
         price: 235.75,
         available: true,
-        picture_url: "https://angrbod.art/produit1/photo",
+        files: [
+          
+        ]
       })
     response.assertStatus(201)
     response.assertFlashMessage('success', 'Enregistrement validé.')

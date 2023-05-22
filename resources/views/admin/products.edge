@@ -37,13 +37,9 @@
                 })
                 <div class="field">
                     <p>Ajouter des photos du produit</p>
-                    <input
-                    type="file"
-                    multiple
-                    name="files[]"
-                    label="Drop files ou cliquer pour uploader"
-                    is="drop-files"
-                    />
+                    @!component('components/files-upload', {
+                        label:"Drop files ou cliquer pour uploader"
+                    })
                 </div>
                 <div>
                     <button type="submit" class="btn btn-primary">Enregistrer ce produit</button>

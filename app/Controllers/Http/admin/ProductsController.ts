@@ -1,6 +1,10 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Product from '../../../Models/Product'
+import Drive from '@ioc:Adonis/Core/Drive'
 import AddProductValidator from '../../../Validators/AddProductValidator'
+import Application from '@ioc:Adonis/Core/Application'
+import Picture from '../../../Models/Picture'
+
 
 export default class ProductsController {
 
@@ -8,16 +12,22 @@ export default class ProductsController {
         return view.render('admin/products')
     }
 
-    public async store({request, view, session, response}: HttpContextContract){
+    public async store({request, session, response}: HttpContextContract){
         const payload = await request.validate(AddProductValidator)
-
         const product = new Product()
 
-        await product.merge(payload).save()
+        product.title = payload.title
+        product.description = payload.description
+        product.slug = payload.slug
+        product.price = payload.price
+        product.available = true
+        
+        product.save()
+        
 
-        response.status(201)
         session.flash('success', 'Enregistrement validé.')
-        return view.render('admin/products')
+        response.status(201)
+        return response.send('ok')
     }
 
 }

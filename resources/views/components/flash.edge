@@ -1,11 +1,13 @@
 @if(flashMessages.has(`success`))
-<div class="flash">
+<div class="flash flash-success">
+    <span></span>
     <p>{{ flashMessages.get(`success`)}}</p>
 </div>
 @endif
 
 @if(flashMessages.has(`error`))
-<div class="flash">
+<div class="flash flash-error">
+    <span></span>
     <p>{{ flashMessages.get(`error`)}}</p>
 </div>
 @endif
