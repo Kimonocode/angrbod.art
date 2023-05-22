@@ -9,6 +9,16 @@
       "js": [
         "http://localhost:8080/assets/admin.js"
       ]
+    },
+    "main": {
+      "css": [
+        "http://localhost:8080/assets/main.css"
+      ]
+    },
+    "style-admin": {
+      "css": [
+        "http://localhost:8080/assets/style-admin.css"
+      ]
     }
   }
 }

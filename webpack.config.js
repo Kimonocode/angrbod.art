@@ -55,8 +55,8 @@ Encore.addEntries({
   app:'./resources/js/app.ts',
   admin:'./resources/js/admin.ts'
 })
-Encore.addStyleEntry('main', './resources/css/index.scss')
-Encore.addStyleEntry('tailwind', './resources/css/tailwind/index.css')
+Encore.addStyleEntry('main', './resources/css/site/index.scss')
+Encore.addStyleEntry('style-admin', './resources/css/admin/index.scss')
 
 /*
 |--------------------------------------------------------------------------
@@ -180,7 +180,7 @@ Encore.configureDevServerOptions((options) => {
 | PostCSS or CSS.
 |
 */
-  Encore.enablePostCssLoader()
+  //Encore.enablePostCssLoader()
 // Encore.configureCssLoader(() => {})
 
 /*

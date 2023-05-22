@@ -1,9 +1,14 @@
 @layout('admin/layout')
 
-@section('body') 
-    <main>
-        <h1 class="text-3xl font-bold underline">Gestion des produits</h1>
-        <form method="post" enctype="multipart/form-data">
+@section('body')
+    @!component('components/admin-topbar', {
+        topbarTitle:'Gestion des produits'
+    })
+    <aside class="formBox" id="formBox">
+        <button id="formBoxClose" class="btn btn-primary">close</button>
+        <div class="content">
+            <h2>Ajouter un produit</h2>
+            <form method="post" enctype="multipart/form-data">
             <fieldset>
                 <legend>Ajouter un nouveau produit</legend>
                 @!component('components/field', {
@@ -31,22 +36,20 @@
                     placeholder:'Prix'
                 })
                 <div class="field">
+                    <p>Ajouter des photos du produit</p>
                     <input
                     type="file"
                     multiple
                     name="files[]"
-                    label="Drop files here or click to upload."
-                    help="Upload files here and they won't be sent immediately"
+                    label="Drop files ou cliquer pour uploader"
                     is="drop-files"
                     />
                 </div>
                 <div>
-                   @!component('components/button', {
-                    type:'submit',
-                    label:'Ajouter ce produit'
-                   })
+                    <button type="submit" class="btn btn-primary">Enregistrer ce produit</button>
                 </div>
             </fieldset>
-        </form>
-    </main>
+            </form>
+        </div>
+    </aside>
 @endsection

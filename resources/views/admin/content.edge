@@ -1,11 +1,14 @@
 @layout('admin/layout')
 
 @section('body') 
-    <main>
-        <h1>Histoire et Mythologie</h1>
-    </main>
-    <aside id="formBox">
-        <form method="post" enctype="multipart/form-data">
+   @!component('components/admin-topbar', {
+    topbarTitle:'Histoires et Mythologie'
+   })
+    <aside class="formBox" id="formBox">
+        <button id="formBoxClose" class="btn btn-primary">close</button>
+        <div class="content">
+            <h2>Ajout d'une nouvelle histoire</h2>
+            <form method="post" enctype="multipart/form-data">
             <fieldset>
                 <legend>Ajouter une nouvelle histoire</legend>
                 @!component('components/field', {
@@ -39,10 +42,11 @@
                     placeholder:'Contenu'
                 })
                 <div>
-                    <button type="submit">Ajouter cette histoire</button>
+                    <button class="btn btn-primary" type="submit">Ajouter cette histoire</button>
                 </div>
             </fieldset>
-        </form>
+            </form>
+        </div>
     </aside>
 @endsection
 
