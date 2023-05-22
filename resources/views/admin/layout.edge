@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angrbod'Art | Administration</title>
+    @entryPointStyles('tailwind')
+</head>
+<body>
+    @!component('components/flash')
+    <header>
+        <nav>
+            <menu type="toolbar">
+                <ul>
+                    <li><a href="{{ route('home') }}">Site</a></li>
+                    <li><a href="{{ route('admin') }}">Dashboard</a></li>
+                    <li><a href="{{route('admin-products')}}">Créations</a></li>
+                    <li><a href="">Événements</a></li>
+                    <li><a href="{{ route('site-content') }}">Contenu</a></li>
+                    <li><a href="{{ route('users') }}">Utilisateurs</a></li>
+                    <li><a role="button" href="">Messages <span>0</span></a></li>
+                    <li><a role="button" href="{{ route('logout') }}">Se deconnecter</a></li>
+                </ul>
+            </menu>
+        </nav>
+    </header>
+    @!section('body')
+    @entryPointScripts('admin')
+</body>
+</html>

@@ -1,0 +1,15 @@
+<div class="field">
+    <div class="form-flash form-flash-error">
+        @if(flashMessages.has(`errors.${name}`))
+        <p>{{ flashMessages.get(`errors.${name}`)}}</p>
+        @endif
+    </div>
+    <div>
+        <label for="{{name}}">{{label}}</label>
+        @if(type === 'textarea')
+        <textarea name="{{name}}" id="{{name}}" cols="30" rows="10" placeholder="{{placeholder}}"></textarea>
+        @else
+        <input type="{{type}}" name="{{name}}" id="{{name}}" placeholder="{{placeholder}}">
+        @endif
+    </div>
+</div>

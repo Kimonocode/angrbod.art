@@ -1,0 +1,48 @@
+@layout('admin/layout')
+
+@section('body') 
+    <main>
+        <h1>Histoire et Mythologie</h1>
+    </main>
+    <aside id="formBox">
+        <form method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Ajouter une nouvelle histoire</legend>
+                @!component('components/field', {
+                    type:'text',
+                    name:'title', 
+                    label:'Titre',
+                    placeholder:'Titre'
+                })
+                @!component('components/field', {
+                    type:'text',
+                    name:'description', 
+                    label:'Description',
+                    placeholder:'Description'
+                })
+                @!component('components/field', {
+                    type:'text',
+                    name:'slug', 
+                    label:'Slug', 
+                    placeholder:'Slug'
+                })
+                @!component('components/field', {
+                    type:'number',
+                    name:'read_time', 
+                    label:'Temps de lecture',
+                    placeholder:'Temps de lecture'
+                })
+                @!component('components/field', {
+                    type:'textarea',
+                    name:'content', 
+                    label:'Contenu',
+                    placeholder:'Contenu'
+                })
+                <div>
+                    <button type="submit">Ajouter cette histoire</button>
+                </div>
+            </fieldset>
+        </form>
+    </aside>
+@endsection
+

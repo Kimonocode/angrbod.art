@@ -1,0 +1,16 @@
+@layout('admin/layout')
+
+@section('body') 
+    <main>
+        <h1>Gestion des utilisateurs</h1>
+    </main>
+    <aside id="formBox">
+        <form method="post">
+            @include('includes/user_registration')
+            @!component('components/button',{
+                type:'submit',
+                label:'Enregistrer l\'utilisateur'
+            })
+        </form>
+    </aside>
+@endsection

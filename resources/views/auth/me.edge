@@ -1,0 +1,10 @@
+@layout('layouts/main')
+@section('body')
+<main>
+    <h1>Compte de : {{ user.firstname }}</h1>
+    <a href="{{route('logout')}}">Se déconnecter</a>
+    @if(user.isSuperUser)
+    <a href="{{ route('admin') }}">Administration</a>
+    @endif
+</main>
+@endsection

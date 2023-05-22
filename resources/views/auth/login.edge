@@ -1,0 +1,34 @@
+@layout('layouts/main')
+@section('body')
+<main>
+    @!component('components/flash')
+    @!component('components/logo', {
+        className:'logo left'
+    })
+    <h1>Connexion</h1>
+    <form method="post">
+        <fieldset>
+            <legend>Ravi de te revoir Viking !</legend>
+            @!component('components/field', {
+                type:'email',
+                name:'email', 
+                label:'Adresse Email',
+                placeholder:'Adresse Email'
+            })
+            @!component('components/field', {
+                type:'password',
+                name:'password', 
+                label:'Mot de passe',
+                placeholder:'Mot de passe'
+            })
+            <div>
+                <button type="submit">Se connecter</button>
+            </div>
+        </fieldset>
+    </form>
+    <div class="form-call-to-action">
+        <a href="{{ route('signup') }}">Devenir membre</a>
+        <a href="">Mot de passe oublié</a>
+    </div>
+</main>
+@endsection

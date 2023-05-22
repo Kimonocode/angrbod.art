@@ -1,0 +1,52 @@
+@layout('admin/layout')
+
+@section('body') 
+    <main>
+        <h1 class="text-3xl font-bold underline">Gestion des produits</h1>
+        <form method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Ajouter un nouveau produit</legend>
+                @!component('components/field', {
+                    type:'text',
+                    name:'title', 
+                    label:'Titre',
+                    placeholder:'Titre'
+                })
+                @!component('components/field', {
+                    type:'text',
+                    name:'description', 
+                    label:'Description',
+                    placeholder:'Description'
+                })
+                @!component('components/field', {
+                    type:'text',
+                    name:'slug', 
+                    label:'Slug', 
+                    placeholder:'Slug'
+                })
+                @!component('components/field', {
+                    type:'number',
+                    name:'price', 
+                    label:'Prix',
+                    placeholder:'Prix'
+                })
+                <div class="field">
+                    <input
+                    type="file"
+                    multiple
+                    name="files[]"
+                    label="Drop files here or click to upload."
+                    help="Upload files here and they won't be sent immediately"
+                    is="drop-files"
+                    />
+                </div>
+                <div>
+                   @!component('components/button', {
+                    type:'submit',
+                    label:'Ajouter ce produit'
+                   })
+                </div>
+            </fieldset>
+        </form>
+    </main>
+@endsection

@@ -1,0 +1,231 @@
+@layout('layouts/main')
+
+@section('body')
+<header>
+  <div id="loader">
+    <img src="/pics/wolf-run.gif" alt="" srcset="">
+    <div class="filter"></div>
+  </div>
+  <section id="hero" class="hero fullheight">
+    <div class="container">
+    @!component('components/logo', {
+        className:'logo'
+    })
+    <h1 id="headline"><span>Medieval</span><span> Leather</span><span> Craft</span></h1>
+    <div class="navbar">
+      <menu id="menu">
+        <ul>
+          <li><a href="#about">À-propos</a></li>
+          <li><a href="#gallery">Créations</a></li>
+          <li><a href="#events">Événements</a></li>
+          <li><a href="#history">Légendes & Mythologie</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </menu>
+    </div>
+    <picture>
+      <source media="(min-width: 1000px)" srcset="/pics/desktop/animals/fox.png">
+      <img id="fox" class="animals" src="/pics/mobile/animals/fox.png" alt="">
+    </picture>
+    </div>
+  </section>
+</header>
+<main id="about" class="fullheight">
+  <div class="container">
+    <p class="item-reveal">Angrbod'art est votre destination en ligne pour découvrir des articles en cuir médiévaux uniques, inspirés par la mythologie nordique et fabriqués avec passion. En tant que créateur, je partage avec vous mes créations, des pièces de qualité qui vous emmènent dans un voyage à travers le temps et l'espace. En plus des photos de mes créations, je partage également des histoires fascinantes sur la mythologie nordique pour vous immerger dans l'univers de mes créations. Explorez notre site pour découvrir des articles en cuir de qualité supérieure et rejoignez notre communauté pour rester informé des dernières créations et histoires. Angrbod'art est votre destination ultime pour les passionnés de cuir et de mythologie nordique.</p>
+    <a href="#gallery">continuer</a>
+    <picture>
+      <source media="(min-width: 1000px)" srcset="/pics/desktop/animals/skull.png">
+      <img id="skull" class="animals" src="/pics/mobile/animals/skull.png" alt="">
+    </picture>
+  </div>
+</main>
+<section id="gallery">
+  <div id="dragger" class="dragger">
+    Drag
+  </div>
+  <picture>
+    <source media="(min-width: 1000px)" srcset="/pics/desktop/animals/bear.png">
+    <img class="animals" id="bigbear" src="" alt="">
+  </picture>
+  <div class="container">
+    <h2>Dernières créations</h2>
+    <div id="carousel" class="carousel" draggable="true">
+      <div class="picture">
+        <picture>
+          <source media="(min-width: 1000px)" srcset="/pics/desktop/gallery/pic1.png">
+          <img class="active" src="/pics/mobile/gallery/pic1.png" alt="">
+        </picture>
+        <div class="img-content">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus, atque perferendis, aperiam incidunt
+            exercitationem dolore.</p>
+        </div>
+      </div>
+      <div class="picture">
+        <picture>
+          <source media="(min-width: 1000px)" srcset="/pics/desktop/gallery/pic2.png">
+          <img src="/pics/mobile/gallery/pic2.png" alt="">
+        </picture>
+        <div class="img-content">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus, atque perferendis, aperiam incidunt
+            exercitationem dolore.</p>
+        </div>
+      </div>
+      <div class="picture">
+        <picture>
+          <source media="(min-width: 1000px)" srcset="/pics/desktop/gallery/pic3.png">
+          <img src="/pics/mobile/gallery/pic3.png" alt="">
+        </picture>
+        <div class="img-content">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus, atque perferendis, aperiam incidunt
+            exercitationem dolore.</p>
+        </div>
+      </div>
+      <div class="picture">
+        <picture>
+          <source media="(min-width: 1000px)" srcset="/pics/desktop/gallery/pic2.png">
+          <img src="/pics/mobile/gallery/pic2.png" alt="">
+        </picture>
+        <div class="img-content">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus, atque perferendis, aperiam incidunt
+            exercitationem dolore.</p>
+        </div>
+      </div>
+      <div class="picture">
+        <picture>
+          <source media="(min-width: 1000px)" srcset="/pics/desktop/gallery/pic3.png">
+          <img src="/pics/mobile/gallery/pic3.png" alt="">
+        </picture>
+        <div class="img-content">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus, atque perferendis, aperiam incidunt
+            exercitationem dolore.</p>
+        </div>
+      </div>
+      <div class="picture">
+        <picture>
+          <source media="(min-width: 1000px)" srcset="/pics/desktop/gallery/pic2.png">
+          <img src="/pics/mobile/gallery/pic2.png" alt="">
+        </picture>
+        <div class="img-content">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus, atque perferendis, aperiam incidunt
+            exercitationem dolore.</p>
+        </div>
+      </div>
+      <div class="picture">
+        <picture>
+          <source media="(min-width: 1000px)" srcset="/pics/desktop/gallery/pic3.png">
+          <img src="/pics/mobile/gallery/pic3.png" alt="">
+        </picture>
+        <div class="img-content">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus, atque perferendis, aperiam incidunt
+            exercitationem dolore.</p>
+        </div>
+      </div>
+    </div>
+    <a href="#">Toutes les créations</a>
+  </div>
+</section>
+<aside id="events" class="fullheight">
+  <div class="container">
+    <h3>Événements disponibles</h3>
+    <picture>
+      <source media="(min-width: 1000px)" srcset="/pics/desktop/animals/seahorse.png">
+      <img id="seahorse" class="animals" src="/pics/mobile/animals/seahorse.png" alt="">
+    </picture>
+    <div class="box">
+      <header>
+        <picture>
+          <source media="(min-width: 1000px)" srcset="/pics/desktop/gallery/pic2.png">
+          <img src="/pics/mobile/gallery/pic2.png" alt="">
+        </picture>
+      </header>
+      <footer>
+        <p class="item-reveal">Aletheia is a highly selective community of doctoral-level educators, providing our students with a
+          unique space in which academic research and tuition flourish symbiotically.Entwining our roots in the
+          Oxbridge collegiate syst</p>
+      </footer>
+    </div>
+    <div class="carousel-numbers">
+      <div>
+        <ul class="number-items">
+          <li class="number-item"><button class="active">1</button></li>
+          <li class="number-item"><button>2</button></li>
+          <li class="number-item"><button>3</button></li>
+          <li class="number-item"><button>4</button></li>
+          <li class="number-item"><button>5</button></li>
+        </ul>
+      </div>
+      <div>
+        <a href="#">Tous les événements</a>
+      </div>
+    </div>
+  </div>
+</aside>
+<section id="history" class="fullheight">
+  <div class="container">
+    <div>
+      <h3>Histoires populaires</h3>
+    </div>
+    <div>
+      <p class="item-reveal"><span>1</span>We empower our students to navigate their own journey through the knowledge of our tutoring
+        team. Our starting point is whatever already fans their curiousity, ignites their creativity, or sparks joy.
+      </p>
+    </div>
+    <div>
+      <p class="item-reveal"><span>2</span>We empower our students to navigate their own journey through the knowledge of our tutoring
+        team. Our starting point is whatever already fans their curiousity, ignites their creativity, or sparks joy.
+      </p>
+    </div>
+    <div>
+      <p class="item-reveal"><span>3</span>We empower our students to navigate their own journey through the knowledge of our tutoring
+        team. Our starting point is whatever already fans their curiousity, ignites their creativity, or sparks joy.
+      </p>
+    </div>
+    <picture>
+      <source media="(min-width: 1000px)" srcset="/pics/desktop/animals/crow.png">
+      <img id="crow" class="animals" src="/pics/mobile/animals/crow.png" alt="">
+    </picture>
+  </div>
+</section>
+<section id="legendary">
+  <div class="container">
+    <h3>Légendes & Mythologie</h3>
+    <div class="wrapper">
+      <div>
+        <p class="item-reveal">Aletheia is a highly selective community of doctoral-level educators, providing our students with a
+          unique space in which academic research and tuition </p>
+      </div>
+      <div>
+        <picture>
+          <source media="(min-width: 1000px)" srcset="/pics/desktop/animals/deer.png">
+          <img src="/pics/mobile/animals/deer.png" alt="">
+        </picture>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div>
+        <p class="item-reveal">Aletheia is a highly selective community of doctoral-level educators, providing our students with a
+          unique space in which academic research and tuition </p>
+      </div>
+      <div>
+        <picture>
+          <source media="(min-width: 1000px)" srcset="/pics/desktop/animals/wolf.png">
+          <img src="/pics/mobile/animals/wolf.png" alt="">
+        </picture>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div>
+        <p class="item-reveal">Aletheia is a highly selective community of doctoral-level educators, providing our students with a
+          unique space in which academic research and tuition </p>
+      </div>
+      <div>
+        <picture>
+          <source media="(min-width: 1000px)" srcset="/pics/desktop/runes/freya.png">
+          <img src="/pics/mobile/runes/freya.png" alt="">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+@endsection

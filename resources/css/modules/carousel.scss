@@ -1,0 +1,29 @@
+.carousel-numbers {
+    margin-top: 30px;
+}
+
+.carousel-numbers,
+.carousel-numbers ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carousel-numbers .picture:nth-child(1) img {
+    transform: rotate(180deg);
+}
+
+.carousel-numbers button {
+    font-size: 40px;
+    border: none;
+    background-color: transparent;
+    font-family: 'Quintessential', cursive;
+    color: var(--gold);
+    opacity: .3;
+    margin-left: 10px;
+}
+
+.carousel-numbers button:hover,
+.carousel-numbers button.active {
+    opacity: 1;
+}

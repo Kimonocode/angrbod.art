@@ -1,0 +1,32 @@
+<fieldset>
+    @!component('components/field', {
+        type:'text',
+        name:'firstname', 
+        label:'Nom',
+        placeholder:'Nom'
+    })
+    @!component('components/field', {
+        type:'text',
+        name:'lastname', 
+        label:'Prénom',
+        placeholder:'Prénom'
+    })
+    @!component('components/field', {
+        type:'email',
+        name:'email', 
+        label:'Adresse Email',
+        placeholder:'Adresse Email'
+    })
+    @!component('components/field', {
+        type:'password',
+        name:'password', 
+        label:'Mot de passe', 
+        placeholder:'Mot de passe'
+    })
+    @!component('components/field', {
+        type:'password',
+        name:'password_confirmed', 
+        label:'Répéter le mot de passe',
+        placeholder:'Répéter le mot de passe'
+    })
+</fieldset>

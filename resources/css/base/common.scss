@@ -1,0 +1,186 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: #122223;
+    color: rgba(256, 256, 256, .67);
+    font-family: 'Quintessential', cursive;
+    font-size: 16px;
+    text-align: center;
+    transition: .3s;
+}
+
+body.bg-cream {
+    background-color: var(--cream);
+    color: #122223;
+}
+
+body.bg-cream .box {
+    background-color: #ffffff42;
+    color: #122223;
+}
+
+body.bg-cream p span {
+    background-color: inherit;
+    color: var(--gold);
+}
+
+#site {
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    background-color: transparent;
+    color: var(--gold);
+}
+
+h1 {
+    margin-top: 30px;
+    font-size: 2em;
+}
+
+h2,
+h3 {
+    font-size: 24px
+}
+
+h2,
+h3,
+h4 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+a,
+a:focus,
+a:visited {
+    text-decoration: none;
+    transition-duration: .2s;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+label {
+    display: none;
+}
+
+legend {
+    margin-bottom: 30px;
+}
+
+input,
+textarea,
+button {
+    background-color: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    transition: .2s;
+    font-size: 1em;
+    font-family: 'Quintessensial', cursive;
+    padding: 0.75em;
+    outline: none;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid var(--gold);
+}
+
+button {
+    cursor: pointer;
+    transition-duration: .2s;
+}
+
+p {
+    line-height: 2;
+    margin-bottom: 30px;
+}
+
+menu {
+    display: none;
+}
+
+main,
+section,
+aside {
+    position: relative;
+}
+
+section a,
+main a,
+aside a {
+    background-color: inherit;
+    color: var(--gold);
+    position: relative;
+    z-index: 3;
+}
+
+section:nth-child(2) {
+    margin-top: 200px;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    transform: translate(-50%);
+    z-index: 5;
+}
+
+.logo.left {
+    left: 30px;
+    top: 30px;
+    transform: translate(0, 0)
+}
+
+.logo a {
+    background-color: transparent;
+    color: var(--gold);
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    max-width: 1000px;
+}
+
+.box {
+    background-color: #1A2A2B;
+}
+
+section:nth-child(6) .wrapper:last-child p,
+section:nth-child(6) .wrapper:nth-child(2) {
+    font-family: 'Sacramento', cursive;
+}
+
+footer {
+    padding-bottom: 60px;
+}
+
+.fullheight {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    place-content: center;
+    place-items: center;
+}
+
+.form-call-to-action {
+    margin-top: 30px;
+}
+
+.form-call-to-action a {
+    margin-left: 20px;
+    margin-right: 20px;
+}

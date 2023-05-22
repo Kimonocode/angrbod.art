@@ -1,0 +1,20 @@
+@layout('layouts/main')
+
+@section('body')
+<main>
+    @!component('components/logo', {
+        className:'logo left'
+    })
+    <h1>Devenir membre</h1>
+    <form method="post">
+    @include('includes/user_registration')
+    @!component('components/button',{
+        type:'submit',
+        label:'Créer un compte'
+    })
+    </form>
+    <div class="form-call-to-action">
+        <a href="{{ route('login') }}">Se connecter</a>
+    </div>
+</main>
+@endsection
