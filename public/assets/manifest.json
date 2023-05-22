@@ -2,5 +2,5 @@
   "assets/app.js": "http://localhost:8080/assets/app.js",
   "assets/admin.js": "http://localhost:8080/assets/admin.js",
   "assets/main.css": "http://localhost:8080/assets/main.css",
-  "assets/tailwind.css": "http://localhost:8080/assets/tailwind.css"
+  "assets/style-admin.css": "http://localhost:8080/assets/style-admin.css"
 }
