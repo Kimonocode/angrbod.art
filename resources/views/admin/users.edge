@@ -1,16 +1,17 @@
 @layout('admin/layout')
 
 @section('body') 
-    <main>
-        <h1>Gestion des utilisateurs</h1>
-    </main>
-    <aside id="formBox">
-        <form method="post">
-            @include('includes/user_registration')
-            @!component('components/button',{
-                type:'submit',
-                label:'Enregistrer l\'utilisateur'
-            })
-        </form>
+    @!component('components/admin-topbar', {
+        topbarTitle:'Gestion des utilisateurs'
+    })
+    <aside class="formBox" id="formBox">
+        <button id="formBoxClose" class="btn btn-primary">close</button>
+        <div class="content">
+            <h2>Enregistrer un nouveau compte</h2>
+            <form method="post">
+                @include('includes/user_registration')
+               <button type="submit" class="btn btn-primary">Enregistrer le compte</button>
+            </form>
+        </div>
     </aside>
 @endsection

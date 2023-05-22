@@ -5,27 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Angrbod'Art | Administration</title>
-    @entryPointStyles('tailwind')
+    @entryPointStyles('style-admin')
 </head>
 <body>
     @!component('components/flash')
     <header>
-        <nav>
-            <menu type="toolbar">
-                <ul>
-                    <li><a href="{{ route('home') }}">Site</a></li>
-                    <li><a href="{{ route('admin') }}">Dashboard</a></li>
-                    <li><a href="{{route('admin-products')}}">Créations</a></li>
-                    <li><a href="">Événements</a></li>
-                    <li><a href="{{ route('site-content') }}">Contenu</a></li>
-                    <li><a href="{{ route('users') }}">Utilisateurs</a></li>
-                    <li><a role="button" href="">Messages <span>0</span></a></li>
-                    <li><a role="button" href="{{ route('logout') }}">Se deconnecter</a></li>
-                </ul>
-            </menu>
-        </nav>
+        <div>
+            <h5>Dashboard</h5>
+            <div>
+                <form action="" method="get">
+                    <div class="field">
+                        <input type="text" name="q" id="q" placeholder="Rechercher...">
+                        <button class="btn btn-primary "type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </header>
-    @!section('body')
-    @entryPointScripts('admin')
+    <main>
+        <div class="sidenav">
+            <nav>
+                <menu type="toolbar">
+                    <li class="sidenav-item"><a href="{{ route('home') }}">Site</a></li>
+                    <li class="sidenav-item"><a href="{{ route('admin') }}">Dashboard</a></li>
+                    <li class="sidenav-item"><a href="{{ route('admin-products')}}">Créations</a></li>
+                    <li class="sidenav-item"><a href="">Événements</a></li>
+                    <li class="sidenav-item"><a href="{{ route('site-content') }}">Contenu</a></li>
+                    <li class="sidenav-item"><a href="{{ route('users') }}">Utilisateurs</a></li>
+                    <li class="sidenav-item"><a role="button" href="">Messages <span>0</span></a></li>
+                    <li class="sidenav-item"><a role="button" href="{{ route('logout') }}">Se deconnecter</a></li>
+                </menu>
+            </nav>
+        </div>
+        <div class="content">
+            @!section('body')  
+        </div>
+    </main>
+
+@entryPointScripts('admin')
 </body>
 </html>

@@ -15,9 +15,9 @@
         "http://localhost:8080/assets/main.css"
       ]
     },
-    "tailwind": {
+    "style-admin": {
       "css": [
-        "http://localhost:8080/assets/tailwind.css"
+        "http://localhost:8080/assets/style-admin.css"
       ]
     }
   }
