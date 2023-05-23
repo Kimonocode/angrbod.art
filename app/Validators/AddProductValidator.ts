@@ -17,9 +17,6 @@ export default class AddProductValidator {
       rules.minLength(3)
     ]),
     'price':schema.number(),
-    'files[]': schema.file({
-      extnames: ['jpg', 'gif', 'png'],
-    }),
   })
 
   public messages: CustomMessages = {}

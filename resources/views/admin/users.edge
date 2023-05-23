@@ -5,7 +5,10 @@
         topbarTitle:'Gestion des utilisateurs'
     })
     <aside class="formBox" id="formBox">
-        <button id="formBoxClose" class="btn btn-primary">close</button>
+        @@!component('components/close-button', {
+            id:'formBoxClose',
+            className:'btn btn-primary widget'
+        })
         <div class="content">
             <h2>Enregistrer un nouveau compte</h2>
             <form method="post">

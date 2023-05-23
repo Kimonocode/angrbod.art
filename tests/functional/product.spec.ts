@@ -1,5 +1,7 @@
 import { test } from '@japa/runner'
 import User from '../../app/Models/User'
+//import Drive from '@ioc:Adonis/Core/Drive'
+//import { file } from '@ioc:Adonis/Core/Helpers'
 
 test.group('Products', () => {
 
@@ -71,21 +73,17 @@ test.group('Products', () => {
   test('The admin can add a product', async ({ client }) => {
     const user = await User.find(1)
     if (user === null)
-      return
-
+      return 
+    
     const response = await client.post('/admin/products').loginAs(user)
       .form({
-        title: "produit 1",
-        description: "description du produit 1",
-        slug: "/produit-01",
+        title: "produit 2",
+        description: "description du produit 2",
+        slug: "/produit-02",
         price: 235.75,
         available: true,
-        files: [
-          
-        ]
       })
     response.assertStatus(201)
     response.assertFlashMessage('success', 'Enregistrement validé.')
   })
-
 })

@@ -1,9 +1,22 @@
-
 .flash {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
     width: max content;
     padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: $surface-dark;
+    z-index: 9;
+    box-shadow: $shadow;
+}
+
+.flash span {
+    display:  block;
+    width: 10px;
+    height: 10px;
+    margin-right: 16px;
+    border-radius: 50%;
+    background-color: rgb(7, 172, 7);
 }

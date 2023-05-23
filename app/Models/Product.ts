@@ -21,6 +21,9 @@ export default class Product extends BaseModel {
 
   @column()
   public available: boolean
+
+  @column()
+  public userId: number
   
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
@@ -32,5 +35,5 @@ export default class Product extends BaseModel {
   public categoryId: HasOne<typeof ProductCategory>
 
   @hasMany(() => Picture)
-  public posts: HasMany<typeof Picture>
+  public pictures: HasMany<typeof Picture>
 }

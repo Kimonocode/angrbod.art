@@ -5,7 +5,10 @@
     topbarTitle:'Histoires et Mythologie'
    })
     <aside class="formBox" id="formBox">
-        <button id="formBoxClose" class="btn btn-primary">close</button>
+        @!component('components/close-button', {
+            id:'formBoxClose',
+            className:'btn btn-primary widget'
+        })
         <div class="content">
             <h2>Ajout d'une nouvelle histoire</h2>
             <form method="post" enctype="multipart/form-data">

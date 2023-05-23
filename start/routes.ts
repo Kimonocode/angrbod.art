@@ -10,7 +10,6 @@ Route.get('/compte/email/confirmation', 'AuthController.sendEmailConfirmation').
 Route.post('/inscription', 'AuthController.store')
 Route.post('/connexion', 'AuthController.login')
 
-
 // Auth Routes
 Route.group(() => {
 
@@ -25,6 +24,7 @@ Route.group(() => {
     Route.get('/dashboard', 'admin/AdminController.index').as('admin')
     Route.get('/content', 'admin/ContentController.index').as('site-content')
     Route.get('/products', 'admin/ProductsController.index').as('admin-products')
+    Route.get('/products/:slug', 'admin/ProductsController.show').as('admin-product')
         
     Route.post('/users', 'admin/UsersController.store')
     Route.post('/content', 'admin/ContentController.store')

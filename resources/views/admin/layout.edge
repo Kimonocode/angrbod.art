@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Angrbod'Art | Administration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @entryPointStyles('style-admin')
 </head>
 <body>
     @!component('components/flash')
-    <header>
+    <header class="navbar">
         <div>
             <h5>Dashboard</h5>
             <div>
                 <form action="" method="get">
                     <div class="field">
-                        <input type="text" name="q" id="q" placeholder="Rechercher...">
-                        <button class="btn btn-primary "type="submit">Search</button>
+                        <input type="search" name="q" id="q" placeholder="Rechercher...">
+                        <button class="btn btn-primary "type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </form>
             </div>
@@ -26,14 +27,14 @@
         <div class="sidenav">
             <nav>
                 <menu type="toolbar">
-                    <li class="sidenav-item"><a href="{{ route('home') }}">Site</a></li>
-                    <li class="sidenav-item"><a href="{{ route('admin') }}">Dashboard</a></li>
-                    <li class="sidenav-item"><a href="{{ route('admin-products')}}">Créations</a></li>
-                    <li class="sidenav-item"><a href="">Événements</a></li>
-                    <li class="sidenav-item"><a href="{{ route('site-content') }}">Contenu</a></li>
-                    <li class="sidenav-item"><a href="{{ route('users') }}">Utilisateurs</a></li>
-                    <li class="sidenav-item"><a role="button" href="">Messages <span>0</span></a></li>
-                    <li class="sidenav-item"><a role="button" href="{{ route('logout') }}">Se deconnecter</a></li>
+                    <li class="sidenav-item"><a href="{{ route('home') }}"><i class="fa-solid fa-house"></i> Site</a></li>
+                    <li class="sidenav-item"><a href="{{ route('admin') }}"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+                    <li class="sidenav-item"><a href="{{ route('admin-products')}}"><i class="fa-solid fa-camera-retro"></i> Créations</a></li>
+                    <li class="sidenav-item"><a href=""><i class="fa-solid fa-calendar-days"></i> Événements</a></li>
+                    <li class="sidenav-item"><a href="{{ route('site-content') }}"><i class="fa-solid fa-book"></i> Contenu</a></li>
+                    <li class="sidenav-item"><a href="{{ route('users') }}"><i class="fa-solid fa-users"></i> Utilisateurs</a></li>
+                    <li class="sidenav-item"><a role="button" href=""><i class="fa-solid fa-bell"></i> Messages <span>0</span></a></li>
+                    <li class="sidenav-item"><a role="button" href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i> Se déconnecter</a></li>
                 </menu>
             </nav>
         </div>

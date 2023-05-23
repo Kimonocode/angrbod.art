@@ -8,32 +8,40 @@
     </div>
     @end
     @!component('components/admin-topbar', {
-        topbarTitle:'Gestion des produits',
+        topbarTitle:`Produit : ${product.title}`
     })
-    <div class="wrapper wrapper-grid">
-        @if(products)
-        @each(product in products)
-        <div class="product">
-            <div class="product_image">
-                @if(product.pictures)
-                <img src="{{product.pictures[0].url}}" alt="mixed vegetable salad in a mason jar." />
-                @endif
-                <span class="product_price"><span>€</span>{{product.price}}</span>
-                <div class="product_widget">
-                    <a href="{{route('admin-products')}}{{product.slug}}" class="btn btn-seconday widget"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+    <div class="wrapper">
+        @!component('components/delete-button', {
+            action:`${route('admin-products')}${product.slug}`
+        })
+        <h2>{{product.pictures.length}} image{{product.pictures.length > 1 ? 's' : ''}} associée{{product.pictures.length > 1 ? 's' : ''}}</h2>
+        <div class="product_gallery">
+            @each(picture in product.pictures)
+            <div>
+              <img src="{{picture.url}}" alt="">
+            </div>
+            @if(product.pictures.length <= 2 )
+                <div class="add_card">
+                   <i class="fa-solid fa-plus"></i>
                 </div>
-            </div>
-            <div class="product_content">
-              <h5 class="product_title">{{product.title}}</h5>
-              <div class="product_text">
-                <p>{{product.description}}</p>
-              </div>
-            </div>
-          </div>
-        @end
-        @else
-          <p>Vous n'avez aucun produit :(</p>
-        @endif
+                <div class="add_card">
+                   <i class="fa-solid fa-plus"></i>
+                </div>
+            @endif
+            @endeach
+        </div>
+        <div class="product_skills">
+           <ul>
+            <li class="product_skill"><span>Nom du produit: </span>{{product.title}}</li>
+            <li class="product_skill"><span>Description: </span>{{product.description}}</li>
+            <li class="product_skill"><span>Prix: </span><span class="product_skill_price">{{product.price}} €</span></li>
+            <li class="product_skill"><span>Mise en ligne: </span>{{ product.createdAt }}</li>
+            <li class="product_skill"><span>Mise à jour: </span>{{ product.updatedAt }}</li>
+            @if(product.available)
+              <li class="product_badge">En stock</li>
+            @endif
+           </ul>
+        </div>
     </div>
     <aside class="formBox" id="formBox">
         @!component('components/close-button', {
@@ -41,7 +49,7 @@
             className:'btn btn-primary widget'
         })
         <div class="content">
-            <h2>Ajouter un produit</h2>
+            <h2>Modifier le produit</h2>
             <form method="post" enctype="multipart/form-data">
             <fieldset>
                 <legend>Ajouter un nouveau produit</legend>

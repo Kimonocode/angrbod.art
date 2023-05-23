@@ -1,4 +1,3 @@
-
 .btn {
     padding: 6px;
     font-size: 16px;
@@ -8,4 +7,16 @@
 .btn-primary {
     background-color: $primary;
     color: #fff;
+
+    &:hover {
+        background-color: lighten($color: $primary, $amount: 5);
+    }
+}
+
+.btn-secondary {
+    background-color: $surface-dark;
+    color: $white;
+    &:hover {
+        background-color: #3c3d40;
+    }
 }
