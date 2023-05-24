@@ -1,5 +1,7 @@
 .widgets {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .widget {
@@ -16,4 +18,7 @@
     &:hover {
         background-color: #3c3d40;
     }
+}
+.widget-danger {
+    color: $danger;
 }

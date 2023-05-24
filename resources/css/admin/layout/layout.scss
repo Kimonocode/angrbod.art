@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1760px;
+    width: 97%;
     margin: auto;
 }
 
@@ -40,16 +40,8 @@
 }
 
 main {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-}
-
-.sidenav {
-    width: 300px;
-    height: 100%;
-    top: 0;
-    left: 0;
+    display: grid;
+    grid-template-columns: 240px 1fr;
 }
 
 .sidenav menu {
@@ -57,17 +49,15 @@ main {
 }
 
 .content {
-    margin-top: 80px;
-    width: 100%;
+    margin-top: 78px;
     padding: 20px;
 }
 
 main .topbar {
-    display: flex;
-    max-width: 1516px;
-    margin: auto;
-    justify-content: space-between;
-    align-items: center;
+display: flex;
+align-items: center;
+max-width: 1560px;
+justify-content: space-between;
 }
 
 
@@ -90,6 +80,9 @@ main .topbar {
 
 .formBox button {
     float:  right;
+}
+
+.formBox .widget {
     margin-right: 20px;
 }
 
@@ -99,7 +92,6 @@ form button {
 
 .wrapper {
     margin-top: 40px;
-    padding: 1em;
 }
 
 

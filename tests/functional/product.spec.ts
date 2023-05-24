@@ -83,7 +83,28 @@ test.group('Products', () => {
         price: 235.75,
         available: true,
       })
-    response.assertStatus(201)
+    response.assertStatus(200)
     response.assertFlashMessage('success', 'Enregistrement validé.')
+    response.assertRedirectsTo('/admin/products')
+  })
+
+  test('The admin can delete a product', async ({client}) => {
+    const user = await User.find(1)
+    if (user === null)
+      return 
+    
+    await client.post('/admin/products')
+      .form({
+        id:3,
+        title: "produit 3",
+        description: "description du produit 3",
+        slug: "/produit-03",
+        price: 235.75,
+        available: true,
+      })
+    const response = await client.delete('/admin/products/3')
+    response.assertStatus(200)
+    response.assertFlashMessage('success', 'Produit supprimé')
+    response.assertRedirectsTo(('/admin/products'))
   })
 })

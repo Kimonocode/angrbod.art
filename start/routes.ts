@@ -23,12 +23,15 @@ Route.group(() => {
     Route.get('/users', 'admin/UsersController.index').as('users')
     Route.get('/dashboard', 'admin/AdminController.index').as('admin')
     Route.get('/content', 'admin/ContentController.index').as('site-content')
-    Route.get('/products', 'admin/ProductsController.index').as('admin-products')
-    Route.get('/products/:slug', 'admin/ProductsController.show').as('admin-product')
+    Route.get('/products', 'admin/products/ProductsController.index').as('admin-products')
+    
+    Route.get('/products/:slug', 'admin/products/ProductsController.show').as('admin-product')
         
     Route.post('/users', 'admin/UsersController.store')
     Route.post('/content', 'admin/ContentController.store')
-    Route.post('/products', 'admin/ProductsController.store')
+    Route.post('/products', 'admin/products/ProductsController.store')
+    Route.post('/products/categories', 'admin/products/CategoriesController.store')
+    Route.delete('/products/:id', 'admin/products/ProductsController.destroy')
 
 })
 .prefix('/admin')

@@ -3,6 +3,9 @@
         <h1>{{ topbarTitle }}</h1>
     </div>
     <div class="widgets">
-        <button class="btn btn-primary widget" id="showFormBox"><i class="fa-solid fa-plus"></i></button>
+        @!component('components/add-button', {
+            id:'showFormBox',
+            title:"Ajouter"
+        })
     </div>
 </div>

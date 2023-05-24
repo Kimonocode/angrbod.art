@@ -1,9 +1,10 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Product from '../../../Models/Product'
+import Product from '../../../../Models/Product'
 import Drive from '@ioc:Adonis/Core/Drive'
-import AddProductValidator from '../../../Validators/AddProductValidator'
+import AddProductValidator from '../../../../Validators/AddProductValidator'
 import Application from '@ioc:Adonis/Core/Application'
-import Picture from '../../../Models/Picture'
+import Picture from '../../../../Models/Picture'
+import ProductsCategory from '../../../../Models/ProductsCategory'
 
 export default class ProductsController {
 
@@ -11,7 +12,9 @@ export default class ProductsController {
         const products = await Product
             .query()
             .preload('pictures')
-        return view.render('admin/products', {products})
+        const categories = await ProductsCategory.all()
+
+        return view.render('admin/products', {products, categories})
     } 
 
     public async show({request, view}: HttpContextContract){
@@ -24,7 +27,7 @@ export default class ProductsController {
     public async store({request, session, response, auth }: HttpContextContract){
         
         const payload  = await request.validate(AddProductValidator)
-        const pictures = request.files('files')
+        const pictures = request.files('pictures')
         const product  = new Product()
 
         if (!pictures){
@@ -50,11 +53,19 @@ export default class ProductsController {
 
             session.flash('success', 'Enregistrement validé.')
             
-            response.redirect('/admin/products', undefined, 201)
+            response.redirect('/admin/products')
 
         } catch (error) {
             console.log(error)
             return response.status(400).send('Persistance impossible')
         }
+    }
+
+    public async destroy({request, response, session}: HttpContextContract){
+        const id = request.param('id')
+        const product = await Product.findOrFail(id)
+        await product.delete()
+        session.flash('success', 'Produit supprimé')
+        return response.redirect('/admin/products')
     }
 }

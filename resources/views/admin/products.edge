@@ -6,11 +6,26 @@
         <span></span>
         {{ success }}
     </div>
-    @end
-    @!component('components/admin-topbar', {
-        topbarTitle:'Gestion des produits',
-    })
-    <div class="wrapper wrapper-grid">
+    @endif
+    <section>
+        @!component('components/admin-topbar', {
+            topbarTitle:'Catégories ',
+        })
+        <div class="product_gallery">
+            @!component('components/add-card')
+            @each(category in categories)
+            <div class="products_categories">
+              <img src="{{category.pictureUrl}}" alt="{{category.title}}">
+              <div class="categories_content">
+                <h4>{{category.title}}</h4>
+              </div>
+            </div>
+            @endeach
+        </div>
+    </section>
+    <section>
+        <h2>Produits</h2>
+        <div class="wrapper wrapper-grid">
         @if(products)
         @each(product in products)
         <div class="product">
@@ -34,8 +49,13 @@
         @else
           <p>Vous n'avez aucun produit :(</p>
         @endif
-    </div>
+        </div>
+    </section>
     <aside class="formBox" id="formBox">
+        @!component('components/add-button', {
+            id:"showFormBox2",
+            title:" Ajouter une catégorie"
+        })
         @!component('components/close-button', {
             id:'formBoxClose',
             className:'btn btn-primary widget'
@@ -63,20 +83,59 @@
                     label:'Slug', 
                     placeholder:'Slug'
                 })
-                @!component('components/field', {
-                    type:'number',
-                    name:'price', 
-                    label:'Prix',
-                    placeholder:'Prix'
-                })
+                <div class="field">
+                    <label for="price">Prix</label>
+                    <input type="number" name="price" id="price" min="0.00" step="0.01" placeholder="Prix">
+                </div>
                 <div class="field">
                     <p>Ajouter des photos du produit</p>
                     @!component('components/files-upload', {
-                        label:"Drop files ou cliquer pour uploader"
+                        name:"pictures"
                     })
                 </div>
                 <div>
                     <button type="submit" class="btn btn-primary">Enregistrer ce produit</button>
+                </div>
+            </fieldset>
+            </form>
+        </div>
+    </aside>
+    <aside class="formBox" id="formBox2">
+        @!component('components/close-button', {
+            id:'formBoxClose2',
+            className:'btn btn-primary widget'
+        })
+        <div class="content">
+            <h2>Ajouter une catégorie</h2>
+            <form action="{{route('admin-products')}}/categories" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Ajouter une catégorie</legend>
+                @!component('components/field', {
+                    type:'text',
+                    name:'title', 
+                    label:'Titre',
+                    placeholder:'Titre'
+                })
+                @!component('components/field', {
+                    type:'text',
+                    name:'description', 
+                    label:'Description',
+                    placeholder:'Description'
+                })
+                @!component('components/field', {
+                    type:'text',
+                    name:'slug', 
+                    label:'Slug', 
+                    placeholder:'Slug'
+                })
+                <div class="field">
+                    <p>Ajouter une bannière</p>
+                    @!component('components/files-upload', {
+                        name:'banner'
+                    })
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Enregistrer cette catégorie</button>
                 </div>
             </fieldset>
             </form>
