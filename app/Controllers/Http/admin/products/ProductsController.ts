@@ -5,6 +5,7 @@ import AddProductValidator from '../../../../Validators/AddProductValidator'
 import Application from '@ioc:Adonis/Core/Application'
 import Picture from '../../../../Models/Picture'
 import ProductsCategory from '../../../../Models/ProductsCategory'
+import UpdateProductValidator from '../../../../Validators/UpdateProductValidator'
 
 export default class ProductsController {
 
@@ -14,14 +15,16 @@ export default class ProductsController {
             .preload('pictures')
         const categories = await ProductsCategory.all()
 
-        return view.render('admin/products', {products, categories})
+        return view.render('admin/products/products', {products, categories})
     } 
 
     public async show({request, view}: HttpContextContract){
         const slug = request.param('slug')
+        const categories = await ProductsCategory.all()
         const product = await Product.findByOrFail('slug', `/${slug}`)
         await product.load('pictures')
-        return view.render('admin/product', {product})
+        const productCategory = await ProductsCategory.findOrFail(product.productsCategoryId)
+        return view.render('admin/products/product', {categories, product, productCategory})
     }
 
     public async store({request, session, response, auth }: HttpContextContract){
@@ -49,6 +52,7 @@ export default class ProductsController {
             }
             
             productSaved.userId = auth.user!.id
+            productSaved.productsCategoryId = request.input('category')
             await productSaved.save()
 
             session.flash('success', 'Enregistrement validé.')
@@ -59,6 +63,19 @@ export default class ProductsController {
             console.log(error)
             return response.status(400).send('Persistance impossible')
         }
+    }
+
+    public async update({request, session, response}: HttpContextContract){
+        const payload  = await request.validate(UpdateProductValidator)
+        let product: Product
+
+        product = await Product.findOrFail(request.param('id'))
+        product = await product.merge(payload).save()
+        product.productsCategoryId = request.input('category')
+        await product.save()
+
+        session.flash('success','Produit Modifié')
+        response.redirect(`/admin/products${product.slug}`)
     }
 
     public async destroy({request, response, session}: HttpContextContract){

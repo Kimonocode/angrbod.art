@@ -50,8 +50,8 @@ label, legend {
     display: none;
 }
 
-input, textarea {
-    background-color: transparent;
+input, textarea, select {
+    background-color: $surface-dark;
     color: $white;
     font-size: 16px;
     outline: none;

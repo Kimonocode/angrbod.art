@@ -9,7 +9,7 @@
         @if(type === 'textarea')
         <textarea name="{{name}}" id="{{name}}" placeholder="{{placeholder}}"></textarea>
         @else
-        <input type="{{type}}" name="{{name}}" id="{{name}}" placeholder="{{placeholder}}">
+        <input type="{{type}}" name="{{name}}" id="{{name}}" placeholder="{{placeholder}}" value="{{value ? value : ""}}">
         @endif
     </div>
 </div>

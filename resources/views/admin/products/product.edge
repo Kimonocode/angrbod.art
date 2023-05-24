@@ -31,6 +31,7 @@
         </div>
         <div class="product_skills">
            <ul>
+            <li class="product_skill"><span>Dans la catégorie: </span>{{productCategory.title}}</li>
             <li class="product_skill"><span>Nom du produit: </span>{{product.title}}</li>
             <li class="product_skill"><span>Description: </span>{{product.description}}</li>
             <li class="product_skill"><span>Prix: </span><span class="product_skill_price">{{product.price}} €</span></li>
@@ -49,33 +50,46 @@
         })
         <div class="content">
             <h2>Modifier le produit</h2>
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" action="{{route('admin-products')}}/{{product.id}}?_method=PUT" enctype="multipart/form-data">
             <fieldset>
-                <legend>Ajouter un nouveau produit</legend>
+                <legend>Modifier le produit</legend>
                 @!component('components/field', {
                     type:'text',
                     name:'title', 
                     label:'Titre',
-                    placeholder:'Titre'
+                    placeholder:'Titre',
+                    value:product.title
                 })
                 @!component('components/field', {
                     type:'text',
                     name:'description', 
                     label:'Description',
-                    placeholder:'Description'
+                    placeholder:'Description',
+                    value:product.description
                 })
                 @!component('components/field', {
                     type:'text',
                     name:'slug', 
                     label:'Slug', 
-                    placeholder:'Slug'
+                    placeholder:'Slug',
+                    value:product.slug
                 })
                 @!component('components/field', {
                     type:'number',
                     name:'price', 
                     label:'Prix',
-                    placeholder:'Prix'
+                    placeholder:'Prix',
+                    value:product.price
                 })
+                 <div class="field">
+                    <p>Dans la catégorie</p>
+                    <select name="category" id="category" value="{{productCategory.id}}">
+                        <option value="{{productCategory.id}}">{{productCategory.title}}</option>
+                        @each(category in categories)
+                            <option value="{{category.id}}">{{category.title}}</option>
+                        @endeach
+                    </select>
+                 </div>
                 <div class="field">
                     <p>Ajouter des photos du produit</p>
                     @!component('components/files-upload', {
@@ -83,7 +97,7 @@
                     })
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-primary">Enregistrer ce produit</button>
+                    <button type="submit" class="btn btn-primary">Modifier</button>
                 </div>
             </fieldset>
             </form>

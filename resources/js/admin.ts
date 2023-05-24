@@ -13,24 +13,24 @@ if(
     formBox 
     && showFormBox 
     && formBoxClose 
-    && showFormBox2 
+    || showFormBox2 
     && formBox2 
     && formBoxClose2
 ){
-    showFormBox.addEventListener('click', () => {
-        formBox.classList.add('is-visible')
+    showFormBox?.addEventListener('click', () => {
+        formBox?.classList.add('is-visible')
     })
 
-    showFormBox2.addEventListener('click', () => {
-        formBox2.classList.add('is-visible')
+    showFormBox2?.addEventListener('click', () => {
+        formBox2?.classList.add('is-visible')
     })
 
-    formBoxClose.addEventListener('click', () => {
-        formBox.classList.remove('is-visible')
+    formBoxClose?.addEventListener('click', () => {
+        formBox?.classList.remove('is-visible')
     })
 
-    formBoxClose2.addEventListener('click', () => {
-        formBox2.classList.remove('is-visible')
+    formBoxClose2?.addEventListener('click', () => {
+        formBox2?.classList.remove('is-visible')
     })
 }
 

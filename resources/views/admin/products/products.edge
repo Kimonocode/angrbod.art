@@ -17,7 +17,7 @@
             <div class="products_categories">
               <img src="{{category.pictureUrl}}" alt="{{category.title}}">
               <div class="categories_content">
-                <h4>{{category.title}}</h4>
+                <a href="{{route('admin-products')}}/categories{{category.slug}}">{{category.title}}</a>
               </div>
             </div>
             @endeach
@@ -26,29 +26,9 @@
     <section>
         <h2>Produits</h2>
         <div class="wrapper wrapper-grid">
-        @if(products)
         @each(product in products)
-        <div class="product">
-            <div class="product_image">
-                @if(product.pictures)
-                <img src="{{product.pictures[0].url}}" alt="mixed vegetable salad in a mason jar." />
-                @endif
-                <span class="product_price"><span>€</span>{{product.price}}</span>
-                <div class="product_widget">
-                    <a href="{{route('admin-products')}}{{product.slug}}" class="btn btn-seconday widget"><i class="fa-solid fa-ellipsis-vertical"></i></a>
-                </div>
-            </div>
-            <div class="product_content">
-              <h5 class="product_title">{{product.title}}</h5>
-              <div class="product_text">
-                <p>{{product.description}}</p>
-              </div>
-            </div>
-          </div>
-        @end
-        @else
-          <p>Vous n'avez aucun produit :(</p>
-        @endif
+        @include('includes/admin_products')
+        @endeach
         </div>
     </section>
     <aside class="formBox" id="formBox">
@@ -86,6 +66,14 @@
                 <div class="field">
                     <label for="price">Prix</label>
                     <input type="number" name="price" id="price" min="0.00" step="0.01" placeholder="Prix">
+                </div>
+                <div class="field">
+                    <p>Enregistrer dans la catégorie :</p>
+                    <select name="category" id="category">
+                        @each(category in categories)
+                            <option value="{{category.id}}">{{category.title}}</option>
+                        @endeach
+                    </select>
                 </div>
                 <div class="field">
                     <p>Ajouter des photos du produit</p>

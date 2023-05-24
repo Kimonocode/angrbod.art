@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, hasMany, HasMany} from '@ioc:Adonis/Lucid/Orm'
 import Picture from './Picture'
 
 export default class Product extends BaseModel {
@@ -25,7 +25,7 @@ export default class Product extends BaseModel {
   public userId: number
 
   @column()
-  public categoryId:number
+  public productsCategoryId:number
   
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
@@ -35,4 +35,5 @@ export default class Product extends BaseModel {
 
   @hasMany(() => Picture)
   public pictures: HasMany<typeof Picture>
+
 }

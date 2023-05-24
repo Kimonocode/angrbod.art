@@ -28,6 +28,6 @@ export default class ProductsCategory extends BaseModel {
   public updatedAt: DateTime
 
   @hasMany(() => Product)
-  public pictures: HasMany<typeof Product>
+  public products: HasMany<typeof Product>
 
 }

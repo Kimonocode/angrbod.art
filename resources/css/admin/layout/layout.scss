@@ -4,6 +4,7 @@
     width: 100%;
     background-color:$surface-dark;
     box-shadow: $shadow;
+    z-index: 5;
 }
 
 .navbar h5 {
@@ -70,6 +71,7 @@ justify-content: space-between;
     transform: translateX(100%);
     background-color: $surface-dark;
     padding: 20px;
+    z-index: 9;
     -webkit-transition: all 0.3s cubic-bezier(.42, 0, .58, 1);
     transition: all 0.2s cubic-bezier(.42, 0, .58, 1);
 }
@@ -94,6 +96,10 @@ form button {
     margin-top: 40px;
 }
 
+section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
 
 .wrapper.wrapper-grid {
     display: grid;
@@ -103,3 +109,4 @@ form button {
 .right {
     float: right;
 }
+

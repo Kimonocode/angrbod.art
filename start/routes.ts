@@ -26,13 +26,15 @@ Route.group(() => {
     Route.get('/products', 'admin/products/ProductsController.index').as('admin-products')
     
     Route.get('/products/:slug', 'admin/products/ProductsController.show').as('admin-product')
-        
+    Route.get('/products/categories/:slug','admin/products/CategoriesController.show').as('admin-products-category')
+    
     Route.post('/users', 'admin/UsersController.store')
     Route.post('/content', 'admin/ContentController.store')
     Route.post('/products', 'admin/products/ProductsController.store')
     Route.post('/products/categories', 'admin/products/CategoriesController.store')
+    Route.put('/products/:id', 'admin/products/ProductsController.update')
     Route.delete('/products/:id', 'admin/products/ProductsController.destroy')
-
+    Route.delete('/products/categories/:id', 'admin/products/CategoriesController.destroy')
 })
 .prefix('/admin')
 .middleware(['auth', 'admin'])

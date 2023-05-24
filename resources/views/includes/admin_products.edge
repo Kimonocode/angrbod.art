@@ -1,0 +1,17 @@
+<div class="product">
+    <div class="product_image">
+        @if(product.pictures)
+        <img src="{{product.pictures[0].url}}" alt="mixed vegetable salad in a mason jar." />
+        @endif
+        <span class="product_price"><span>€</span>{{product.price}}</span>
+        <div class="product_widget">
+            <a href="{{route('admin-products')}}{{product.slug}}" class="btn btn-seconday widget"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+        </div>
+    </div>
+    <div class="product_content">
+      <h5 class="product_title">{{product.title}}</h5>
+      <div class="product_text">
+        <p>{{product.description}}</p>
+      </div>
+    </div>
+  </div>

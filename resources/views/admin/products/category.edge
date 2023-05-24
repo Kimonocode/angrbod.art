@@ -1,0 +1,93 @@
+@layout('admin/layout')
+
+@section('body')
+    @if(success)
+    <div class="flash flash-success">
+        <span></span>
+        {{ success }}
+    </div>
+    @endif
+    <header>
+        @!component('components/admin-topbar', {
+            topbarTitle:`Catégorie: ${category.title}`
+        })
+    </header>
+    <div class="wrapper">
+        @!component('components/delete-button', {
+            action:`${route('admin-products')}/categories/${category.id}`
+        })
+        <div style="
+        height:400px;
+        background-image:url('{{category.pictureUrl}}');
+        background-repeat:no-repeat;
+        background-size:cover;
+        background-position:center;
+        background-attachment:fixed;
+        ">
+        </div>
+        <section>
+            <div class="product_skills">
+                <ul>
+                 <li class="product_skill"><span>Nom de catégorie: </span>{{category.title}}</li>
+                 <li class="product_skill"><span>Mise en ligne: </span>{{ category.createdAt }}</li>
+                 <li class="product_skill"><span>Mise à jour: </span>{{ category.updatedAt }}</li>
+                </ul>
+             </div>
+        </section>
+        <section>
+            <h2>{{ category.products.length }} Produits Associés</h2>
+            <div class="wrapper wrapper-grid">
+                @each(product in category.products)
+                @include('includes/admin_products')
+                @end
+            </div>
+        </section>
+    </div>
+    <aside class="formBox" id="formBox">
+        @!component('components/close-button', {
+            id:'formBoxClose',
+            className:'btn btn-primary widget'
+        })
+        <div class="content">
+            <h2>Modifier le produit</h2>
+            <form method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Ajouter un nouveau produit</legend>
+                @!component('components/field', {
+                    type:'text',
+                    name:'title', 
+                    label:'Titre',
+                    placeholder:'Titre'
+                })
+                @!component('components/field', {
+                    type:'text',
+                    name:'description', 
+                    label:'Description',
+                    placeholder:'Description'
+                })
+                @!component('components/field', {
+                    type:'text',
+                    name:'slug', 
+                    label:'Slug', 
+                    placeholder:'Slug'
+                })
+                @!component('components/field', {
+                    type:'number',
+                    name:'price', 
+                    label:'Prix',
+                    placeholder:'Prix'
+                })
+                <div class="field">
+                    <p>Ajouter des photos du produit</p>
+                    @!component('components/files-upload', {
+                        label:"Drop files ou cliquer pour uploader"
+                    })
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Enregistrer ce produit</button>
+                </div>
+            </fieldset>
+            </form>
+        </div>
+    </aside>
+@endsection
