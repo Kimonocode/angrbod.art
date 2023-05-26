@@ -7,6 +7,11 @@ import UpdateProductCategoryValidator from '../../../../Validators/UpdateProduct
 
 
 export default class CategoriesController {
+    
+    public async index({view}: HttpContextContract){
+        const categories = await ProductsCategory.all()
+        return view.render('admin/products/categories', {categories})
+    }
 
     public async show({request, view}: HttpContextContract){
         const slug = request.param('slug')

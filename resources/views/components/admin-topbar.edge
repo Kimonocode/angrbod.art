@@ -1,6 +1,6 @@
 <div class="topbar">
     <div>
-        <h1>{{ topbarTitle }}</h1>
+        <h1><a href="{{topbarSlug ? topbarSlug : "/admin/dashboard"}}">{{ topbarTitle }}</a></h1>
     </div>
     <div class="widgets">
         @!component('components/add-button', {

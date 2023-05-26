@@ -1,0 +1,19 @@
+@layout('admin/layout')
+
+@section('body')
+    <section>
+        @!component('components/admin-topbar', {
+            topbarTitle:'Catégories ',
+        })
+    </section>
+    <section>
+        <div class="categories">
+        @each(category in categories)
+        <div class="category">
+            <img src="{{category.pictureUrl}}" alt="{{category.title}}">
+            <a href="{{route('admin-products')}}/categories{{category.slug}}">{{category.title}}</a>
+        </div>
+        @endeach
+        </div>
+    </section>
+@endsection

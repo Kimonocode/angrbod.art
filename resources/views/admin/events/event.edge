@@ -1,0 +1,104 @@
+@layout('admin/layout')
+
+@section('body')
+    @if(success)
+    <div class="flash flash-success">
+        <span></span>
+        {{ success }}
+    </div>
+    @end
+    @!component('components/admin-topbar', {
+        topbarTitle:`Événement : ${event.title}`
+    })
+    <div class="wrapper">
+        @!component('components/delete-button', {
+            title:"Supprimer l'événement",
+            action:`${route('admin-events')}/${event.id}`
+        })
+        <div style="
+        height:400px;
+        background-image:url('{{event.bannerUrl}}');
+        background-repeat:no-repeat;
+        background-size:cover;
+        background-position:center;
+        background-attachment:fixed;
+        ">
+        </div>
+        <div class="product_skills">
+           <ul>
+            <li class="product_skill"><span>Nom de l'événement: </span>{{event.title}}</li>
+            <li class="product_skill"><span>Description: </span>{{event.description}}</li>
+            <li class="product_skill"><span>Adresse: </span>{{event.address}}</li>
+            <li class="product_skill"><span>Du: </span>{{event.dateStart.toFormat("dd/MM/yyyy")}}</li>
+            <li class="product_skill"><span>Au: </span>{{event.dateFinish.toFormat("dd/MM/yyyy")}}</li>
+            <li class="product_skill"><a href="{{event.websiteUrl}}">Site internet</a></li>
+           </ul>
+        </div>
+    </div>
+    <aside class="formBox" id="formBox">
+        @!component('components/close-button', {
+            id:'formBoxClose',
+            className:'btn btn-primary widget'
+        })
+        <div class="content">
+            <h2>Modifier l'événement</h2>
+            <form method="post" action="{{route('admin-events')}}/{{event.id}}?_method=PUT" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Modifier l'événement</legend>
+                @!component('components/field', {
+                    type:'text',
+                    name:'title', 
+                    label:'Titre',
+                    placeholder:'Titre',
+                    value:event.title
+                })
+                @!component('components/field', {
+                    type:'text',
+                    name:'description', 
+                    label:'Description',
+                    placeholder:'Description',
+                    value:event.description
+                })
+                @!component('components/field', {
+                    type:'text',
+                    name:'slug', 
+                    label:'Slug', 
+                    placeholder:'Slug',
+                    value:event.slug
+                })
+                @!component('components/field', {
+                    type:'text',
+                    name:'website_url', 
+                    label:'Url du site web', 
+                    placeholder:'https://website.com',
+                    value:event.websiteUrl
+                })
+                @!component('components/field', {
+                    type:'text',
+                    name:'address', 
+                    label:'Adresse de l\'événement', 
+                    placeholder:"Adresse / Lieu de l'événement",
+                    value:event.address
+                })
+                <div class="field date">
+                    <label for="dateStart">Date de début</label>
+                    <input type="date" name="date_start" id="dateStart" value="{{event.dateStart}}>
+                </div>
+                <div class="field date">
+                    <label for="DateFinish">Date de fin</label>
+                    <input type="date" name="date_finish" id="dateFinish" value="{{event.dateFinish}}">
+                </div>
+                <div class="field">
+                    <p>Modifier la bannière</p>
+                    @!component('components/files-upload', {
+                        label:"Drop files ou cliquer pour uploader"
+                    })
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Modifier</button>
+                </div>
+            </fieldset>
+            </form>
+        </div>
+    </aside>
+@endsection

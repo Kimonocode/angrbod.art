@@ -1,0 +1,100 @@
+@layout('admin/layout')
+
+@section('body')
+    @if(success)
+    <div class="flash flash-success">
+        <span></span>
+        {{ success }}
+    </div>
+    @endif
+    <section>
+        @!component('components/admin-topbar', {
+            topbarTitle:'Événements',
+        })
+    </section>
+    <section class="events">
+        @each(event in events)
+          <div class="event">
+            <div class="event_banner">
+                <img src="{{event.bannerUrl}}" alt="{{event.title}}">
+                <a href="{{route('admin-events')}}{{event.slug}}"><i class="fa-solid fa-eye"></i></a>
+            </div>
+            <div class="event_content">
+                <h4 class="event_title">{{event.title}}</h4>
+                <p class="event_text">{{ truncate(event.description, 100) }}</p>
+                <span>Où ?</span>
+                <p>{{event.address}}</p>
+                <span>Quand ?</span>
+                <p>Du: {{ event.dateStart.toFormat("dd/MM/yyyy") }}</p>
+                <p>Au: {{ event.dateFinish.toFormat("dd/MM/yyyy") }}</p>
+                <a href="{{event.websiteUrl}}">site internet de l'événement</a>
+            </div>
+          </div>
+        @endeach
+    </section>
+    <aside class="formBox" id="formBox">
+        @!component('components/add-button', {
+            id:"showFormBox2",
+            title:" Ajouter une événements"
+        })
+        @!component('components/close-button', {
+            id:'formBoxClose',
+            className:'btn btn-primary widget'
+        })
+        <div class="content">
+            <h2>Ajouter un événement</h2>
+            <form method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Ajouter un événement</legend>
+                @!component('components/field', {
+                    type:'text',
+                    name:'title', 
+                    label:'Titre',
+                    placeholder:'Titre'
+                })
+                @!component('components/field', {
+                    type:'text',
+                    name:'description', 
+                    label:'Description',
+                    placeholder:'Description'
+                })
+                @!component('components/field', {
+                    type:'text',
+                    name:'slug', 
+                    label:'Slug', 
+                    placeholder:'Slug'
+                })
+                @!component('components/field', {
+                    type:'text',
+                    name:'website_url', 
+                    label:'Url du site web', 
+                    placeholder:'https://website.com'
+                })
+                @!component('components/field', {
+                    type:'text',
+                    name:'address', 
+                    label:'Adresse de l\'événement', 
+                    placeholder:"Adresse / Lieu de l'événement"
+                })
+                <div class="field date">
+                    <label for="dateStart">Date de début</label>
+                    <input type="date" name="date_start" id="dateStart">
+                </div>
+                <div class="field date">
+                    <label for="DateFinish">Date de fin</label>
+                    <input type="date" name="date_finish" id="dateFinish">
+                </div>
+                <div class="field">
+                    <p>Ajouter une bannière</p>
+                    @!component('components/files-upload', {
+                        name:"banner"
+                    })
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Enregistrer l'événements</button>
+                </div>
+            </fieldset>
+            </form>
+        </div>
+    </aside>
+@endsection

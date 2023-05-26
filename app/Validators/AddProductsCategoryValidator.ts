@@ -10,7 +10,7 @@ export default class AddProductsCategoryValidator {
       rules.minLength(3)
     ]),
     'slug': schema.string({}, [
-      rules.unique({table:'products',column:'slug'}),
+      rules.unique({table:'products_categories',column:'slug'}),
       rules.minLength(3)
     ]),
   })

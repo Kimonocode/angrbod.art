@@ -24,11 +24,15 @@ Route.group(() => {
     Route.get('/dashboard', 'admin/AdminController.index').as('admin')
     Route.get('/content', 'admin/ContentController.index').as('site-content')
     Route.get('/products', 'admin/products/ProductsController.index').as('admin-products')
+    Route.get('/events', 'admin/EventsController.index').as('admin-events')
+    Route.get('/events/:slug', 'admin/EventsController.show').as('admin-event')
     
     Route.get('/products/:slug', 'admin/products/ProductsController.show').as('admin-product')
     Route.get('/products/categories/:slug','admin/products/CategoriesController.show').as('admin-products-category')
+    Route.get('/order/products/categories', 'admin/products/CategoriesController.index').as('admin-products-categories')
     
     Route.post('/users', 'admin/UsersController.store')
+    Route.post('/events', 'admin/EventsController.store')
     Route.post('/content', 'admin/ContentController.store')
     Route.post('/products', 'admin/products/ProductsController.store')
     Route.post('/products/categories', 'admin/products/CategoriesController.store')
