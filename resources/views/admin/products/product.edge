@@ -12,13 +12,20 @@
     })
     <div class="wrapper">
         @!component('components/delete-button', {
+            title:"Supprimer le produit",
             action:`${route('admin-products')}/${product.id}`
         })
         <h2>{{product.pictures.length}} image{{product.pictures.length > 1 ? 's' : ''}} associée{{product.pictures.length > 1 ? 's' : ''}}</h2>
         <div class="product_gallery">
             @each(picture in product.pictures)
-            <div>
+            <div class="product_image">
               <img src="{{picture.url}}" alt="image du produit">
+              <div class="product_delete_btn">
+                @!component('components/delete-button', {
+                    action:`${route('admin-products')}/${product.id}/image/${picture.id}`,
+                    title:"Supprimer l'image"
+                })
+              </div>
             </div>
             @endeach
             @if(product.pictures.length <= 1 )

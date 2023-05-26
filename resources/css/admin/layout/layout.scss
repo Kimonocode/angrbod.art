@@ -43,6 +43,7 @@
 main {
     display: grid;
     grid-template-columns: 240px 1fr;
+    grid-template-rows: 1fr;
 }
 
 .sidenav menu {

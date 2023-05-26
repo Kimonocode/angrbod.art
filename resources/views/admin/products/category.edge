@@ -49,38 +49,36 @@
             className:'btn btn-primary widget'
         })
         <div class="content">
-            <h2>Modifier le produit</h2>
-            <form method="post" enctype="multipart/form-data">
+            <h2>Modifier la catégorie</h2>
+            <form action="{{route('admin-products')}}/categories/{{category.id}}?_method=PUT" method="post" enctype="multipart/form-data">
             <fieldset>
-                <legend>Ajouter un nouveau produit</legend>
+                <legend>Modifier la catégorie</legend>
                 @!component('components/field', {
                     type:'text',
                     name:'title', 
                     label:'Titre',
-                    placeholder:'Titre'
+                    placeholder:'Titre',
+                    value:category.title
                 })
                 @!component('components/field', {
                     type:'text',
                     name:'description', 
                     label:'Description',
-                    placeholder:'Description'
+                    placeholder:'Description',
+                    value:category.description === null ? "Aucune Description" : category.description
                 })
                 @!component('components/field', {
                     type:'text',
                     name:'slug', 
                     label:'Slug', 
-                    placeholder:'Slug'
-                })
-                @!component('components/field', {
-                    type:'number',
-                    name:'price', 
-                    label:'Prix',
-                    placeholder:'Prix'
+                    placeholder:'Slug',
+                    value:category.slug
                 })
                 <div class="field">
-                    <p>Ajouter des photos du produit</p>
+                    <p>Modifier la bannière</p>
                     @!component('components/files-upload', {
-                        label:"Drop files ou cliquer pour uploader"
+                        label:"Drop files ou cliquer pour uploader",
+                        name:'banner'
                     })
                 </div>
                 <div>

@@ -32,9 +32,13 @@ Route.group(() => {
     Route.post('/content', 'admin/ContentController.store')
     Route.post('/products', 'admin/products/ProductsController.store')
     Route.post('/products/categories', 'admin/products/CategoriesController.store')
+    
     Route.put('/products/:id', 'admin/products/ProductsController.update')
+    Route.put('/products/categories/:id', 'admin/products/CategoriesController.update')
+
     Route.delete('/products/:id', 'admin/products/ProductsController.destroy')
     Route.delete('/products/categories/:id', 'admin/products/CategoriesController.destroy')
+    Route.delete('/products/:productId/image/:pictureId', 'admin/products/ProductsPicturesController.destroy')
 })
 .prefix('/admin')
 .middleware(['auth', 'admin'])

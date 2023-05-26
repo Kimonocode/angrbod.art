@@ -3,6 +3,7 @@ import ProductsCategory from '../../../../Models/ProductsCategory'
 import AddProductsCategoryValidator from '../../../../Validators/AddProductsCategoryValidator'
 import Application from '@ioc:Adonis/Core/Application'
 import Drive from '@ioc:Adonis/Core/Drive'
+import UpdateProductCategoryValidator from '../../../../Validators/UpdateProductCategoryValidator'
 
 
 export default class CategoriesController {
@@ -29,6 +30,22 @@ export default class CategoriesController {
         }
         session.flash('success', 'Catégorie enregistrée')
         return response.redirect().toRoute('admin-products')
+    }
+
+    public async update({request, response, session}: HttpContextContract){
+        const banner = request.file('banner')
+        const category = await ProductsCategory.findOrFail(request.param('id'))
+        const payload = await request.validate(UpdateProductCategoryValidator)
+        const newCategory = await category.merge(payload).save()
+        
+        if(banner){
+            await banner.move(Application.tmpPath('uploads'))
+            newCategory.pictureUrl = await Drive.getUrl(banner.fileName!)
+            await newCategory.save()
+        }
+        
+        session.flash('success', 'catégorie modifiée')
+        return response.redirect(`/admin/products/categories${newCategory.slug}`)
     }
 
     public async destroy({request, response, session}: HttpContextContract){

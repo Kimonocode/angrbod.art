@@ -1,7 +1,11 @@
 <div class="product">
     <div class="product_image">
-        @if(product.pictures)
+        @if(product.pictures[0])
         <img src="{{product.pictures[0].url}}" alt="mixed vegetable salad in a mason jar." />
+        @else
+        <div style="height:200px;display:flex;align-items:center;justify-content:center;">
+        aucune image
+        </div>
         @endif
         <span class="product_price"><span>€</span>{{product.price}}</span>
         <div class="product_widget">
