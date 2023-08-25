@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Boutique | Angrbod'Art</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  @entryPointStyles('style-shop')
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+
+     <div class="navbar_left">
+      <h4 class="logo"><a href="{{route('home')}}">Angrbod'Art</a></h5>
+      <nav>
+       <menu type="context">
+           <li><a href="#">home</a></li>
+           <li>shop <span class="icon"><i class="fa-solid fa-chevron-down"></i></span>
+               <ul class="dropdown">
+                <li><a href="/collections">Collections</a></li>
+                @each(collection in collections)
+                <li class="dropdow_items"><a href="/collections{{collection.slug}}">{{collection.title}}</a></li>
+                @endeach
+               </ul>
+           </li>
+           <li><a href="{{route('events')}}">Événements</a></li>
+           <li><a href="#">Histoires & Mythologie</a></li>
+           <li><a href="#">À-propos</a></li>
+       </menu>
+      </nav>
+     </div>
+
+     <div class="navbar_right">
+      <div class="navbar_widget">
+        <a href="#"><i class="fa-solid fa-user"></i></a>
+      </div>
+      <div class="navbar_widget">
+        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+      </div>
+      <div class="navbar_widget">
+        <a href="#"><i class="fa-solid fa-heart"></i></a>
+      </div>
+     </div>
+    </div>
+  </header>
+  <main>
+    @!section('body')
+  </main>
+@entryPointScripts('app')
+</body>
+</html>

@@ -52,11 +52,15 @@ Encore.setPublicPath('/assets')
 */
 
 Encore.addEntries({
-  app:'./resources/js/app.ts',
-  admin:'./resources/js/admin.ts'
+  app:'./resources/js/site.ts',
+  admin:'./resources/js/admin.ts',
+  shop:'/resources/js/shop.ts'
 })
+
 Encore.addStyleEntry('main', './resources/css/site/index.scss')
+Encore.addStyleEntry('style-shop', './resources/css/shop/index.scss')
 Encore.addStyleEntry('style-admin', './resources/css/admin/index.scss')
+
 
 /*
 |--------------------------------------------------------------------------

@@ -1,0 +1,50 @@
+@layout('shop/layout')
+@section('body')
+<section class="hero">
+  <h1 class="headline">Medieval MarketPlace</h1>
+  <div class="hero_filter"></div>
+</section>
+
+<section class="categories">
+  <div class="container">
+    <div class="carousel">
+      <div class="carousel_container">
+        @each(collection in collections)
+          <div class="carousel_picture">
+            <img src="{{collection.pictureUrl}}" alt="{{collection.title}}">
+            <div class="carousel_title">
+              <h4><a href="/collections{{collection.slug}}">{{collection.title}}</a></h4>
+            </div>
+            <div class="collection_info">
+              <h5>{{collection.title}}</h5>
+              @if(collection.description)
+              <p>{{collection.description}}</p> 
+              @endif
+            </div>
+          </div>
+        @endeach
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products">
+  <div class="container">
+    <h2>Créations récentes</h2>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore fugiat amet labore facere nostrum natus saepe laboriosam dolores, commodi et quaerat veniam, nam delectus aspernatur aliquam consectetur vero est porro!</p>
+    <div class="wrapper">
+      @each(product in products)
+        <div class="card">
+          <div class="card_picture">
+            <img src="{{product.pictures[0].url}}" alt="{{product.title}}">
+          </div>
+          <div class="card_info">
+            <h6 class="card_title">{{product.title}}</h6>
+            <p class="product_price">{{product.price}} <span>€</span></p>
+          </div>
+        </div>
+      @endeach
+    </div>
+  </div>
+</section>
+@endsection

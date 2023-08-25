@@ -10,9 +10,19 @@
         "http://localhost:8080/assets/admin.js"
       ]
     },
+    "shop": {
+      "js": [
+        "http://localhost:8080/assets/shop.js"
+      ]
+    },
     "main": {
       "css": [
         "http://localhost:8080/assets/main.css"
+      ]
+    },
+    "style-shop": {
+      "css": [
+        "http://localhost:8080/assets/style-shop.css"
       ]
     },
     "style-admin": {

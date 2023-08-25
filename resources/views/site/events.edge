@@ -1,0 +1,29 @@
+@layout('shop/layout')
+@section('body')
+  <section class="hero events">
+    <div class="container">
+        <h1 class="headline">Vivez une aventures uniques aux événements médiévaux !</h1>
+    </div>    
+  </section>
+  
+  <section class="events">
+    <div class="container">
+        <h2>Événements à venir</h2>
+        <div class="wrapper">
+            @each(event in events)
+              <div class="card">
+                <div class="card_picture">
+                    <img src="{{event.bannerUrl}}" alt="{{event.title}}">
+                    <div class="card_link">
+                        <a href="{{route('events')}}{{event.slug}}">{{event.title}}</a>
+                    </div>
+                </div>
+                <div class="card_info">
+                    <h4>{{event.title}}</h4>
+                </div>
+              </div>
+            @endeach
+        </div>
+    </div>
+  </section>
+@endsection

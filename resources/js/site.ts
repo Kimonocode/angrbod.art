@@ -27,6 +27,10 @@ const observer = new IntersectionObserver( entries => {
     // observer options
 });
 
+if(window.location.pathname !== '/'){
+    document.body.classList.add('bg-cream');
+}
+
 if(document.body !== null){
     // Carousel
 //const gallery = new Carousel(carousel);

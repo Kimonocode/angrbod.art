@@ -1,0 +1,21 @@
+@layout('shop/layout')
+@section('body')
+  <section class="hero" style="background-image:url({{e.bannerUrl}})">
+    <div class="container">
+        <h1 class="headline">Vivez une aventure unique !</h1>
+    </div>
+  </section>
+  
+  <section class="event">
+    <div class="container">
+        <div class="wrapper">
+            <div>
+                <h2>{{e.title }}</h2>
+                <h3>Informations</h3>
+            </div>
+            <p>{{e.description}}</p>
+            <a href="{{e.websiteUrl}}">Plus d'informations sur le site internet</a>
+        </div>
+    </div>
+  </section>
+@endsection

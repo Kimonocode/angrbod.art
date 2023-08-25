@@ -1,7 +1,14 @@
 import Route from '@ioc:Adonis/Core/Route'
 
+// Site
 Route.get('/', 'HomeController.index').as('home')
+Route.get('/evenements-medievaux', 'EventsController.index').as('events')
+Route.get('/evenements-medievaux/:slug', 'EventsController.show').as('event')
 
+// Shop
+Route.get('/collections/tous-les-produits','ProductsController.index').as('products')
+
+// Auth
 Route.get('/connexion', 'AuthController.login').as('login')
 Route.get('/inscription', 'AuthController.signup').as('signup')
 Route.get('/logout', 'AuthController.logout').as('logout')
@@ -10,14 +17,13 @@ Route.get('/compte/email/confirmation', 'AuthController.sendEmailConfirmation').
 Route.post('/inscription', 'AuthController.store')
 Route.post('/connexion', 'AuthController.login')
 
-// Auth Routes
 Route.group(() => {
 
     Route.get('/me', 'ProfileController.index').as('me')
 
 }).middleware('auth')
 
-// Admin Routes
+// Admin 
 Route.group(() => {
 
     Route.get('/users', 'admin/UsersController.index').as('users')
