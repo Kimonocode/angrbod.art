@@ -21,7 +21,7 @@
     "adonis-preset-ts": "^2.1.0",
     "autoprefixer": "^10.4.14",
     "pino-pretty": "^10.0.0",
-    "postcss": "^8.4.23",
+    "postcss": "^8.4.31",
     "postcss-loader": "^7.3.0",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
